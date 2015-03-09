@@ -1,6 +1,7 @@
 # Network setup script
 
 import os
+import time
 
 
 interfaces_content = """
@@ -58,6 +59,8 @@ network={
     print("Updated network configuration written!")
     print("Restarting network ...")
     
-    os.system("service networking restart")
+    os.system("service networking stop; service networking start")
+	time.sleep(1)
+	os.system("ifup --force wlan0")
     
     print("Done!")
