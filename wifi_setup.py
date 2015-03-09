@@ -60,7 +60,7 @@ network={
     print("Restarting network ...")
     
     os.system("service networking stop; service networking start")
-	time.sleep(1)
-	os.system("ifup --force wlan0")
+    time.sleep(1)
+    os.system("ifup --force wlan0")
     
     print("Done!")
