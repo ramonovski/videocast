@@ -1,0 +1,45 @@
+Requirements
+============
+
+A raspberry Pi with the latest Raspbian image installed.
+
+Steps
+======
+
+- Unzip the attached zip file on your computer and update the config.json file. It contains the configuration information for the ftp server that you'll need to update to match your ftp server's credentials. Basically you'll need to update the values for server, username, password and server_folder parameters.
+
+- Once done, transfer all files including the emptry videos folder to the raspberry pi. You can transfer these to any place on the pi, a suitable place might be to create the folder /home/pi/videocast and transfer these files there.
+
+
+WiFi configuration
+------------------
+
+- This link provides methods on how to configura the RPi for usb wifi: http://www.raspberrypi.org/documentation/configuration/wireless/
+
+- It's recommended that you use any of the methods described in the above link to configure wifi, however this project also contains a script to setup wifi. To use the wifi configuration script, you'll have to move into the folder containing the code in RPi. For example let's assume that the folder is: /home/pi/videocast
+
+    cd /home/pi/videocast
+    sudo python wifi_setup.py
+    
+  This script will ask you for the wifi network's SSID and password (if the network requires a password) and update the system files accordingly.
+
+  
+Making the Raspberry Pi boot in text mode:
+-------------------------------------------
+
+For the script to run we have to configure the raspberry pi to run in text mode, this can be done using:
+
+    sudo raspi-config
+    
+  The program contains an option to configure raspberry pi to run either in text or GUI mode. Text mode is the default so for a new raspbian installation you might not need to change anything, however if when you boot the RPi and it goes to the GUI then you'll need to perform this step.
+
+  
+Running the Video Cast
+-----------------------
+
+Running the video cast is quite easy, just move into the folder where the code is and run the run_videocast.sh script. For example:
+
+   cd /home/pi/videocast
+   bash run_videocast.sh
+
+The script automatically checks your FTP server for updates every 30 minutes and keeps on playing videos downloaded from the server in a loop.
