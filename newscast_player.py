@@ -20,7 +20,7 @@ def get_playlist(config):
 
 def play_video(filename):
     
-    cmd = 'omxplayer -b "{}"'.format(filename)
+    cmd = 'omxplayer -b -r "{}"'.format(filename)
     os.system(cmd)
 
 
