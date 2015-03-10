@@ -20,7 +20,7 @@ def get_playlist(config):
 
 def play_video(filename):
     
-    cmd = 'omxplayer -b -r "{}"'.format(filename)
+    cmd = 'omxplayer -b "{}"'.format(filename)
     os.system(cmd)
 
 
@@ -31,13 +31,14 @@ if '__main__' == __name__:
     
     while True:
         try:
-            while 0 == len(localfiles):
+            while 0 == len(local_files):
                 time.sleep(10)
                 local_files = get_playlist(config)
             
             for local_file in local_files:
                 print("Playing " + local_file)
                 play_video(local_file)
+                time.sleep(1)
                 if os.path.exists('/tmp/reload_videocast'):
                     local_files = get_playlist(config)
                     os.unlink('/tmp/reload_videocast')

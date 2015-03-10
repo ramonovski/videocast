@@ -67,9 +67,10 @@ if '__main__' == __name__:
     while True:
         try:
             sync_files(config)
+            #time.sleep(20)
             time.sleep(30*60)   # 30 mintues
         except (KeyboardInterrupt, SystemExit) as exp:
             print("Good bye!")
             sys.exit()
-        except:
+        except Exception as exp:
             print("Error: " + str(exp))
