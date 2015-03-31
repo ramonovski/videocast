@@ -42,7 +42,7 @@ class MyFTP(object):
 
 if '__main__' == __name__:
     
-    F = MyFTP('localhost', 21, 'kashif', 'setmeyou', 'ftp', 'videos')
+    F = MyFTP('ftp.lax.8B79.edgecastcdn.net', 21, 'info@verican.com', 'tvc_med1a', 'TVC/test', 'videos')
     F.login()
     F.get_file_list()
     for filename in F.files:
